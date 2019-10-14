@@ -6,7 +6,7 @@ import (
 	"github.com/duanlizhi/go-utils"
 	"gopkg.in/mgo.v2"
 	"github.com/stretchr/testify/assert"
-	"mtest"
+	"school-api/mtest"
 	"github.com/jinzhu/copier"
 )
 
@@ -58,7 +58,7 @@ func TestMgModel_Save(t *testing.T) {
 	err = mod.Save()
 	assert.NoError(t, err)
 	assert.Equal(t, id1, mod.Id)
-	mtest.OutputJson(mod)
+	school-api/mtest.OutputJson(mod)
 }
 
 func TestMgModel_LoadById(t *testing.T) {
@@ -66,7 +66,7 @@ func TestMgModel_LoadById(t *testing.T) {
 	err := mod.LoadById("59fae3686154b3790cdc7f81")
 	assert.NoError(t, err)
 	assert.Equal(t, "2", mod.FieldStr)
-	mtest.OutputJson(mod)
+	school-api/mtest.OutputJson(mod)
 }
 
 func TestToObjectId(t *testing.T) {

@@ -5,7 +5,7 @@ import (
 	"github.com/kataras/iris/context"
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/httptest"
-	"mtest"
+	"school-api/mtest"
 	"os"
 	"github.com/duanlizhi/go-utils"
 	uredis "github.com/duanlizhi/go-utils/redis"
@@ -13,7 +13,7 @@ import (
 )
 
 func TestMain(m *testing.M) {
-	mtest.PreEnv()
+	school-api/mtest.PreEnv()
 	testConf, _ := utils.LoadConfig(os.Getenv("NXPT_GO_CONF"))
 	uredis.LoadClient(testConf.Redis)
 	BuildIrisSession(testConf)

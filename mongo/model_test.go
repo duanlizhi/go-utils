@@ -3,7 +3,7 @@ package mongo
 import (
 	"os"
 	"testing"
-	"github.com/WingGao/go-utils"
+	"github.com/duanlizhi/go-utils"
 	"gopkg.in/mgo.v2"
 	"github.com/stretchr/testify/assert"
 	"mtest"

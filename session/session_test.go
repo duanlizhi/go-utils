@@ -7,8 +7,8 @@ import (
 	"github.com/kataras/iris/httptest"
 	"mtest"
 	"os"
-	"github.com/WingGao/go-utils"
-	uredis "github.com/WingGao/go-utils/redis"
+	"github.com/duanlizhi/go-utils"
+	uredis "github.com/duanlizhi/go-utils/redis"
 	"github.com/stretchr/testify/assert"
 )
 

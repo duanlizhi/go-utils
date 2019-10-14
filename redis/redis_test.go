@@ -3,7 +3,7 @@ package redis
 import (
 	"testing"
 	"os"
-	"github.com/WingGao/go-utils"
+	"github.com/duanlizhi/go-utils"
 	"github.com/rs/xid"
 	"github.com/stretchr/testify/assert"
 	"encoding/gob"

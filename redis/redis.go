@@ -3,7 +3,7 @@ package redis
 import (
 	"github.com/garyburd/redigo/redis"
 	"time"
-	"github.com/WingGao/go-utils"
+	"github.com/duanlizhi/go-utils"
 	"encoding/gob"
 	"bytes"
 )

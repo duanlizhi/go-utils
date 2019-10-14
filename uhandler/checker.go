@@ -3,8 +3,8 @@ package uhandler
 import (
 	"github.com/kataras/iris/context"
 	cdb "core/db"
-	. "github.com/WingGao/go-utils"
-	. "github.com/WingGao/go-utils/session"
+	. "github.com/duanlizhi/go-utils"
+	. "github.com/duanlizhi/go-utils/session"
 )
 
 func RequireLogin(ictx context.Context) {

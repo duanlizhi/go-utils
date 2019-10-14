@@ -27,7 +27,7 @@
 package mongo
 
 import (
-	"gopkg.in/mgo.v2/bson"
+	"github.com/duanlizhi/mgo/bson"
 	"gopkg.in/mgo.v2"
 	"github.com/thoas/go-funk"
 	sll "github.com/emirpasic/gods/lists/singlylinkedlist"

@@ -9,7 +9,7 @@ import (
 	. "github.com/duanlizhi/go-utils"
 	//"fmt"
 	"errors"
-	cdb "core/db"
+	cdb "school-api/core/db"
 	uredis "github.com/duanlizhi/go-utils/redis"
 	//pxdb "px/db"
 	"time"

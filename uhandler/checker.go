@@ -2,7 +2,7 @@ package uhandler
 
 import (
 	"github.com/kataras/iris/context"
-	cdb "core/db"
+	cdb "school-api/core/db"
 	. "github.com/duanlizhi/go-utils"
 	. "github.com/duanlizhi/go-utils/session"
 )

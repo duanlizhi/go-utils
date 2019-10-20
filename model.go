@@ -1,15 +1,15 @@
 package utils
 
 import (
-	"database/sql"
-	"fmt"
-	"github.com/duanlizhi/gorm"
-	"github.com/fatih/structs"
+	"time"
+	"github.com/jinzhu/gorm"
+	"reflect"
 	"github.com/go-errors/errors"
 	"github.com/thoas/go-funk"
-	"reflect"
+	"github.com/fatih/structs"
 	"strings"
-	"time"
+	"fmt"
+	"database/sql"
 )
 
 var (
@@ -33,7 +33,7 @@ type IModel interface {
 	LoadAndSetId(id uint32) error
 	Exist(where ...interface{}) bool
 	ExistID() bool
-	FetchColumnValue(keys ...string) (out interface{})
+	FetchColumnValue(keys ... string) (out interface{})
 	Find(out interface{}, where ...interface{}) *gorm.DB
 	MakePSlice() interface{}
 	BatchInsertBad(items []*Model) (err error)
@@ -47,7 +47,7 @@ type IModel interface {
 	FormatError(err error) error
 	Delete() error
 	Where(query interface{}, args ...interface{}) *gorm.DB
-	FormatSql(sql string, args ...interface{}) string
+	FormatSql(sql string, args ... interface{}) string
 	SetDBOpt(name string, value interface{}) *gorm.DB
 	//连贯操作
 	Select(query interface{}, args ...interface{}) *gorm.DB
@@ -159,7 +159,7 @@ func (m *Model) NewScope() (*gorm.Scope, error) {
 	return m.GetDB().NewScope(m.parent), nil
 }
 
-func (m *Model) FormatColumns(keys ...string) []string {
+func (m *Model) FormatColumns(keys ... string) []string {
 	scope, _ := m.NewScope()
 	rkeys := make([]string, len(keys))
 	for i, v := range keys {
@@ -176,7 +176,7 @@ func (m *Model) Limit(limit interface{}) *gorm.DB {
 }
 
 //只返回第一个
-func (m *Model) FetchColumnValue(keys ...string) (out interface{}) {
+func (m *Model) FetchColumnValue(keys ... string) (out interface{}) {
 	if m.ID == 0 || m.parent == nil {
 
 	} else {
@@ -319,13 +319,13 @@ func (m *Model) Upsert(attrs ...interface{}) (err error) {
 func (m *Model) Updates(values interface{}, ignoreProtectedAttrs ...bool) error {
 	var err error
 	if err == nil {
-		d := m.GetDB().Model(m.parent).Omit("id").Updates(values, ignoreProtectedAttrs...)
+		d := m.GetDB().Model(m.parent).Omit("id").Updates(values, ignoreProtectedAttrs ...)
 		err = d.Error
 	}
 	return m.parent.(IModelParent).FormatError(err)
 }
 
-func (m *Model) Update(attrs ...interface{}) error {
+func (m *Model) Update(attrs ...interface{}) (error) {
 	err := m.parent.(IModelParent).IsValid()
 	if err == nil {
 		d := m.GetDB().Model(m.parent).Omit("id").Update(attrs...)
@@ -441,7 +441,7 @@ func (m *Model) ExistID() bool {
 
 //格式化sql，添加自定义变量
 // $MTABLE = 当前表名
-func (m *Model) FormatSql(sql string, args ...interface{}) string {
+func (m *Model) FormatSql(sql string, args ... interface{}) string {
 	scope, _ := m.NewScope()
 	if len(args) > 0 {
 		sql = fmt.Sprintf(sql, args...)
@@ -609,7 +609,7 @@ func ScopeOmitFields(scope *gorm.Scope, fields ...string) {
 	}
 }
 
-func FormatSqlError(err error) error {
+func FormatSqlError(err error) (error) {
 	if err != nil {
 		errStr := err.Error()
 		if strings.HasPrefix(errStr, "Error 1451: Cannot delete or update a parent row") {
@@ -621,7 +621,7 @@ func FormatSqlError(err error) error {
 	return err
 }
 
-func SqlEscape(source string) string {
+func SqlEscape(source string) (string) {
 	var j int = 0
 	if len(source) == 0 {
 		return ""
@@ -669,7 +669,6 @@ func SqlEscape(source string) string {
 	}
 	return string(desc[0:j])
 }
-
 // sql.Rows的长度
 func RowsLength(rows *sql.Rows) (l int) {
 	for rows.Next() {

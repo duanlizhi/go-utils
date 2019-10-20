@@ -3,9 +3,9 @@ package utils
 import (
 	"database/sql"
 	"fmt"
+	"github.com/duanlizhi/gorm"
 	"github.com/fatih/structs"
 	"github.com/go-errors/errors"
-	"github.com/jinzhu/gorm"
 	"github.com/thoas/go-funk"
 	"reflect"
 	"strings"

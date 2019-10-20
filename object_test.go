@@ -1,13 +1,13 @@
 package utils
 
 import (
-	"testing"
-	"reflect"
-	"time"
 	"fmt"
-	"github.com/jinzhu/copier"
+	"github.com/duanlizhi/copier"
 	"github.com/imdario/mergo"
 	"github.com/stretchr/testify/assert"
+	"reflect"
+	"testing"
+	"time"
 )
 
 type ObjInner struct {
@@ -80,7 +80,7 @@ type objectField struct {
 	parent    reflect.StructField
 }
 
-func DeepFields(iface interface{}, parent reflect.StructField) (map[string]objectField) {
+func DeepFields(iface interface{}, parent reflect.StructField) map[string]objectField {
 	objectFields := make(map[string]objectField, 10)
 
 	ifv := reflect.ValueOf(iface)

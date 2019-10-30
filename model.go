@@ -74,7 +74,7 @@ type IModelParent interface {
 }
 
 type Model struct {
-	ID uint32   `gorm:"primary_key" bson:"ID"`
+	ID uint32   `gorm:"primary_key" bson:"ID" orm:"pk;auto;"`
 	DB *gorm.DB `gorm:"-" json:"-" bson:"-" form:"-"`
 	// 指向父的指针
 	parent            interface{} `gorm:"-"`
